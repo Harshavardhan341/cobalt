@@ -70,27 +70,27 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        r2/camera_link:
+        r2/left_rear_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        r2/rotor_0:
+        r2/left_front_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        r2/rotor_1:
+        r2/right_rear_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        r2/rotor_2:
+        r2/right_front_wheel_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        r2/rotor_3:
+        r2/Rear_Rocker_Link:
           Alpha: 1
           Show Axes: false
           Show Trail: false

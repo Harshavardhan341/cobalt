@@ -89,6 +89,13 @@
           <wheel_radius>0.31</wheel_radius>
         </wheel>
       </plugin>
+    
+        <plugin 
+                filename="ignition-gazebo-joint-state-publisher-system" 
+                name="ignition::gazebo::systems::JointStatePublisher">
+                <topic>joint_states</topic>
+        </plugin>
+
     </gazebo>
 
         <gazebo reference='${robot_namespace}/imu_sensor'>

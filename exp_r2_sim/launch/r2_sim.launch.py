@@ -52,18 +52,26 @@ def generate_launch_description():
         parameters=[
             {'use_sim_time': use_sim_time}, 
             {'robot_description': doc.toxml()}
-        ],
-
-
+        ],       
+        remappings=[
+            ('joint_states', 'r2/joint_states')
+        ]
     )
+
+
+
 
     joint_state_publisher = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
         arguments=[xacro_path],
+        remappings=[
+            ('joint_states', 'r2/joint_states')
+        ]
 
     )
+    
     ignition_spawn_entity = Node(
         package='ros_ign_gazebo',
         executable='create',
@@ -98,25 +106,24 @@ def generate_launch_description():
         ],
     )
 
-    #rviz = Node(
-    #    package='rviz2',
-    #    executable='rviz2',
-    #    arguments=['-d', os.path.join(
-    #        get_package_share_directory('exp_r2'), 
-    #        'rviz', 
-    #        'config.rviz'
-    #        )
-    #    ],
-    #)
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        arguments=['-d', os.path.join(
+            get_package_share_directory('exp_r2_sim'), 
+            'rviz', 
+            'config.rviz'
+            )
+        ],
+    )
 
     return LaunchDescription([
 
-        #IncludeLaunchDescription(
-        #    PythonLaunchDescriptionSource(
-        #        [os.path.join(get_package_share_directory('ros_ign_gazebo'),
-        #                      'launch', 'ign_gazebo.launch.py')]),
-#
-        #    launch_arguments=[('ign_args', [world_sdf_path])]),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [os.path.join(get_package_share_directory('ros_ign_gazebo'),
+                              'launch', 'ign_gazebo.launch.py')]),
+            launch_arguments=[('ign_args', [world_sdf_path])]),
 
         DeclareLaunchArgument('use_sim_time', default_value=use_sim_time),
 
@@ -127,9 +134,9 @@ def generate_launch_description():
 
        
 
-        #ignition_spawn_entity,
+        ignition_spawn_entity,
 
-        #bridge,
+        bridge,
 
         odomTotransform,
 
