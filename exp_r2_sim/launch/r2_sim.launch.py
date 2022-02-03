@@ -71,6 +71,16 @@ def generate_launch_description():
         ]
 
     )
+    joint_state_publisher_gui = Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui',
+        arguments=[xacro_path],
+        remappings=[
+            ('joint_states', 'r2/joint_states')
+        ]
+
+    )
     
     ignition_spawn_entity = Node(
         package='ros_ign_gazebo',
@@ -79,7 +89,7 @@ def generate_launch_description():
         '-topic', '/robot_description',
         '-name', 'r2',
         '-allow_renaming', 'true'
-        '-z', '0.3'
+        '-z', '1.0'
         ],
     )
 
@@ -119,26 +129,26 @@ def generate_launch_description():
 
     return LaunchDescription([
 
-        #IncludeLaunchDescription(
-        #    PythonLaunchDescriptionSource(
-        #        [os.path.join(get_package_share_directory('ros_ign_gazebo'),
-        #                      'launch', 'ign_gazebo.launch.py')]),
-        #    launch_arguments=[('ign_args', [world_sdf_path])]),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [os.path.join(get_package_share_directory('ros_ign_gazebo'),
+                              'launch', 'ign_gazebo.launch.py')]),
+            launch_arguments=[('ign_args', [world_sdf_path])]),
 
         DeclareLaunchArgument('use_sim_time', default_value=use_sim_time),
 
         DeclareLaunchArgument('robot_description', default_value=doc.toxml()),
-        joint_state_publisher,
+        #joint_state_publisher,
         
         robot_state_publisher,
 
-       
+    
 
-        #ignition_spawn_entity,
+        ignition_spawn_entity,
 
         bridge,
 
-        odomTotransform,
+        #odomTotransform,
 
         rviz,
 

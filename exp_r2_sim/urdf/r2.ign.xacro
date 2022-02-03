@@ -20,13 +20,13 @@
         <right_joint>${robot_namespace}/right_rear_wheel</right_joint>
         <wheel_separation>0.5735</wheel_separation>
         <wheel_radius>0.31</wheel_radius>
-        <topic>/cmd_vel</topic>
+        <topic>r2/cmd_vel</topic>
         <min_velocity>-1</min_velocity>
         <max_velocity>1</max_velocity>
         <min_acceleration>-1.24</min_acceleration>
         <max_acceleration>1.16</max_acceleration>
         <odom_topic>/odom</odom_topic>
-        <child_frame_id>${robot_namespace}/base_footprint</child_frame_id>
+        <child_frame_id>${robot_namespace}/base_link</child_frame_id>
       </plugin>
       <!-- Publish robot state information -->
       <plugin filename="libignition-gazebo-pose-publisher-system.so"
@@ -93,11 +93,11 @@
         <plugin 
                 filename="ignition-gazebo-joint-state-publisher-system" 
                 name="ignition::gazebo::systems::JointStatePublisher">
-                <topic>joint_states</topic>
+                <topic>r2/joint_states</topic>
         </plugin>
 
-    </gazebo>
-
+        </gazebo>
+        
         <gazebo reference='${robot_namespace}/imu_sensor'>
             <sensor name=
                 "${robot_namespace}/imu_sensor" type="imu">

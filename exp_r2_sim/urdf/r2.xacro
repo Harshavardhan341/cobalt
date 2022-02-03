@@ -2,8 +2,9 @@
 
 <robot name="r2" xmlns:xacro="http://ros.org/wiki/xacro">
 
+    <pose>0 0 1.5 0 0 0</pose>
     <xacro:macro name="r2" params="robot_namespace">
-    
+        
         <xacro:property name="r2_prefix_stl" value="file://$(find exp_r2_sim)/meshes"/>
 
         <link name='${robot_namespace}/base_footprint'/>
@@ -98,8 +99,8 @@
                 </geometry>
             </visual>
         </link>
-        <joint name='${robot_namespace}/Center Pivot' type='fixed'>
-            <origin xyz='-0.047625 0 -0.0254' rpy='1.5708 -0 0'/>
+        <joint name='${robot_namespace}/Center Pivot' type='revolute'>
+            <origin xyz='-0.047625 0 -0.0254' rpy='0 -0 0'/>
             <parent link='${robot_namespace}/base_link'/>
             <child link='${robot_namespace}/Rear_Rocker_Link'/>
             <dynamics damping='0' friction='0' />
