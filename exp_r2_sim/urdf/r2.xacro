@@ -207,7 +207,7 @@
             <limit lower='-1e+16' upper='1e+16' effort='-1' velocity='-1'/>
         </joint>
 
-        <joint name='${robot_namespace}/right_front_wheel' type='fixed'>
+        <joint name='${robot_namespace}/right_front_wheel' type='revolute'>
             <origin xyz='0.33421 -0.343 -0.091538' rpy='-0.013747 -0 1.5708'/>
             <parent link='${robot_namespace}/base_link'/>
             <child link='${robot_namespace}/right_front_wheel_link'/>
