@@ -26,6 +26,7 @@
         <min_acceleration>-1.24</min_acceleration>
         <max_acceleration>1.16</max_acceleration>
         <odom_topic>/odom</odom_topic>
+        <odometry_frame>odom</odometry_frame>
         <child_frame_id>${robot_namespace}/base_link</child_frame_id>
       </plugin>
       <!-- Publish robot state information -->

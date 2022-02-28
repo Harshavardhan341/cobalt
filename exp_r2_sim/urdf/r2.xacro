@@ -31,11 +31,35 @@
                 </geometry>
             </collision>
             <visual name='base_link_visual'>
-                <origin xyz='0 0 0' rpy='0 0 -1.5708'/>
+                <origin xyz='0.180 0 0.24' rpy='0 0 -1.5708'/>
                 <geometry>
-                    <mesh filename='${r2_prefix_stl}/cube.STL' scale='1 1 1'/>
+                    <mesh filename='${r2_prefix_stl}/r2.dae'>
+
+                        <submesh>
+                            <name>BodyFront</name>
+                            <center>true</center>
+                        </submesh>
+                    </mesh>
                 </geometry>
+            <material>
+              <diffuse>1.0 1.0 1.0</diffuse>
+              <specular>1.0 1.0 1.0</specular>
+              <pbr>
+                  <metal>
+                    <albedo_map>file://$(find exp_r2_sim)/models/materials/textures/R2_Albedo.png</albedo_map>
+                      <metalness_map>file://$(find exp_r2_sim)/models/materials/textures/R2_Metalness.png</metalness_map>
+                      <roughness_map>file://$(find exp_r2_sim)/models/materials/textures/R2_Roughness.png</roughness_map>
+                  </metal>
+              </pbr>
+              <!-- fallback to script if no PBR support-->
+              <script>
+                  <uri>file://$(find exp_r2_sim)/models/materials/scripts/</uri>
+                  <uri>file://$(find exp_r2_sim)/models/materials/textures/</uri>
+                  <name>UrbanTile/R2_Diffuse</name>
+              </script>
+          </material>
             </visual>
+
             <visual name='base_link_fixed_joint_lump__sensor_payload_link_visual_1'>
                 <origin xyz='0.31054 -0.0903 0.23288' rpy='1.5708 -0 0'/>
                 <geometry>

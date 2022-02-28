@@ -148,7 +148,7 @@ def generate_launch_description():
 
         bridge,
 
-        #odomTotransform,
+        odomTotransform,
 
         rviz,
 

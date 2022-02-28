@@ -1,0 +1,12 @@
+digraph G {
+"r2/base_footprint" -> "r2/base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"r2/base_link" -> "r2/Rear_Rocker_Link"[label=" Broadcaster: default_authority\nAverage rate: 250.202\nBuffer length: 4.952\nMost recent transform: 29.924\nOldest transform: 24.972\n"];
+"r2/base_link" -> "r2/left_front_wheel_link"[label=" Broadcaster: default_authority\nAverage rate: 250.202\nBuffer length: 4.952\nMost recent transform: 29.924\nOldest transform: 24.972\n"];
+"r2/Rear_Rocker_Link" -> "r2/left_rear_wheel_link"[label=" Broadcaster: default_authority\nAverage rate: 250.202\nBuffer length: 4.952\nMost recent transform: 29.924\nOldest transform: 24.972\n"];
+"r2/base_link" -> "r2/right_front_wheel_link"[label=" Broadcaster: default_authority\nAverage rate: 250.202\nBuffer length: 4.952\nMost recent transform: 29.924\nOldest transform: 24.972\n"];
+"r2/Rear_Rocker_Link" -> "r2/right_rear_wheel_link"[label=" Broadcaster: default_authority\nAverage rate: 250.202\nBuffer length: 4.952\nMost recent transform: 29.924\nOldest transform: 24.972\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1643905515.3032644"[ shape=plaintext ] ;
+}->"r2/base_footprint";
+}
